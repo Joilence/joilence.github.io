@@ -240,6 +240,217 @@
             
               
                 
+                <a class="post-title-link" href="/2016/07/18/linux-and-macbookair/" itemprop="url">
+                  给 Macbook Air 安装 Linux
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-07-18T23:21:15+08:00" content="2016-07-18">
+              2016-07-18
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>从老妈那里拿到一台 Macbook 3,1 (Macbook Air 2010 Late)，Core 2 Duo 1.4GHz，2G RAM 可换，加上 Air 本身轻便，完全是刷个 Linux 就可以满血复活，杀人越货的利器！</p>
+<p>最开始打算装 Ubuntu，在 Ubuntu Community Wiki 界面中 <a href="https://help.ubuntu.com/community/MacBookAir" target="_blank" rel="external">Macbook Air 的支持页面</a>，针对我这台 Model 最新只有 Ubuntu 13 的教程，而且各个步骤非常麻烦。</p>
+<p>一气之下，改换 Elementary OS，一个基于 Ubuntu，界面神似 macOS（原 OS X）的 Linux。在 Elementary OS 官网直接有 <a href="https://elementary.io/zh_CN/docs/installation#installation" target="_blank" rel="external">Installation Guide</a> 具体步骤如下：</p>
+<ul>
+<li>下载 Elementary OS 镜像</li>
+<li>使用 <a href="http://www.etcher.io/" target="_blank" rel="external">Etcher</a> 将镜像烧录至U盘</li>
+<li>重启设备，在开机时按住 Option 键从U盘启动</li>
+<li>选择U盘（EFI Boot）可进入 Elementary OS</li>
+</ul>
+<p>但第一次尝试直接安装 Elementary OS 时失败，随后重新启动，选择 <code>try elementary os</code> 进入 Elementary OS，再在 Elementary OS 中点击 Dock 栏中的 <code>Install Elementary OS</code> 即可安装。安装完成后可能进入无限重启，强制关机后再开机即可。</p>
+<p>最后测试，Wifi，Bluetooth，功放均无问题。</p>
+<p>知道这种方式之后，用同样的方式烧录 NixOS、Ubuntu、Arch，似乎都可以用这种方式安装，不过没有尝试。</p>
+<p>查看 Arch 的 Wiki 感觉安装有些复杂。准备先跟《鸟哥的 Linux 私房菜》再深入了解一下 Linux，再去折腾。</p>
+<p>记录一些困惑：</p>
+<ul>
+<li>什么是 EFI？什么是 Live CD？</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/14/improve-blog/" itemprop="url">
+                  博客搭建与工作流
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-07-14T21:26:45+08:00" content="2016-07-14">
+              2016-07-14
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="2016-7-14"><a href="#2016-7-14" class="headerlink" title="2016.7.14"></a>2016.7.14</h1><h2 id="添加新文章后自动用文本编辑器打开"><a href="#添加新文章后自动用文本编辑器打开" class="headerlink" title="添加新文章后自动用文本编辑器打开"></a>添加新文章后自动用文本编辑器打开</h2><p>在 Blog 目录下创建 <code>scripts</code> 目录（如果没有的话），在该目录下创建一个 JavaScript 脚本监听 <code>hexo new</code> 命令即可，脚本文件名任意。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> exec = <span class="built_in">require</span>(<span class="string">'child_process'</span>).exec;</div><div class="line"></div><div class="line"><span class="comment">// Hexo 2.x</span></div><div class="line">hexo.on(<span class="string">'new'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">path</span>)</span>&#123;</div><div class="line">    exec(<span class="string">'open -a "Application/YourEditor.app" '</span> + path);</div><div class="line">&#125;);</div><div class="line"><span class="comment">// Hexo 3</span></div><div class="line">hexo.on(<span class="string">'new'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">    exec(<span class="string">'open -a "Application/YourEditor.app" '</span> + data.path);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>Github Hexo 相关 Issue：<br><a href="https://github.com/hexojs/hexo/issues/1007" target="_blank" rel="external">Open markdown file after running hexo new?</a></p>
+<h2 id="使用-MWeb-配合-Hexo-写博客"><a href="#使用-MWeb-配合-Hexo-写博客" class="headerlink" title="使用 MWeb 配合 Hexo 写博客"></a>使用 MWeb 配合 Hexo 写博客</h2><p>打开 MWeb，按下 <code>Cmd + E</code> 进入外部模式，将 Blog 目录下的 source 文件夹加入到 External Source 列表中。</p>
+<p><img src="/images/MWeb-external-table.png" alt="MWeb-external-table"></p>
+<p>则右部列表如上图可见。双击 source 文件夹名，可进入编辑界面。</p>
+<p><img src="/images/MWeb-external-source-edit.png" alt="MWeb-external-source-edit"></p>
+<p>修改 <code>Display Name</code> 可以修改 Library 展示的名称，但不会更改原目录的名称。<br>修改 <code>Media Folder Name</code> 以及 <code>Media Save Path</code> 可以修改博客图片存储的目录名及其路径。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/07/11/create-personal-blog-with-hexo/" itemprop="url">
                   搭建个人博客：Hexo & GitHub Pages
                 </a>
@@ -384,7 +595,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
