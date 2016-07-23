@@ -86,21 +86,24 @@
 
 
 
-<meta name="description" content="2016.7.14添加新文章后自动用文本编辑器打开在 Blog 目录下创建 scripts 目录（如果没有的话），在该目录下创建一个 JavaScript 脚本监听 hexo new 命令即可，脚本文件名任意。
-12345678910var exec = require(&apos;child_process&apos;).exec;// Hexo 2.xhexo.on(&apos;new&apos;, function(path)&amp;#">
+<meta name="description" content="【在 OS X 上操作，部分适用于 Linux】
+2016.7.14添加新文章后自动用文本编辑器打开在 Blog 目录下创建 scripts 目录（如果没有的话），在该目录下创建一个 JavaScript 脚本监听 hexo new 命令即可，脚本文件名任意。
+12345678910var exec = require(&apos;child_process&apos;).exec;// Hexo 2.xhexo.o">
 <meta property="og:type" content="article">
 <meta property="og:title" content="博客搭建与工作流">
 <meta property="og:url" content="http://joilence.github.io/2016/07/14/improve-blog/index.html">
 <meta property="og:site_name" content="Joilence">
-<meta property="og:description" content="2016.7.14添加新文章后自动用文本编辑器打开在 Blog 目录下创建 scripts 目录（如果没有的话），在该目录下创建一个 JavaScript 脚本监听 hexo new 命令即可，脚本文件名任意。
-12345678910var exec = require(&apos;child_process&apos;).exec;// Hexo 2.xhexo.on(&apos;new&apos;, function(path)&amp;#">
+<meta property="og:description" content="【在 OS X 上操作，部分适用于 Linux】
+2016.7.14添加新文章后自动用文本编辑器打开在 Blog 目录下创建 scripts 目录（如果没有的话），在该目录下创建一个 JavaScript 脚本监听 hexo new 命令即可，脚本文件名任意。
+12345678910var exec = require(&apos;child_process&apos;).exec;// Hexo 2.xhexo.o">
 <meta property="og:image" content="http://joilence.github.io/images/MWeb-external-table.png">
 <meta property="og:image" content="http://joilence.github.io/images/MWeb-external-source-edit.png">
-<meta property="og:updated_time" content="2016-07-14T16:05:02.000Z">
+<meta property="og:updated_time" content="2016-07-22T15:13:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="博客搭建与工作流">
-<meta name="twitter:description" content="2016.7.14添加新文章后自动用文本编辑器打开在 Blog 目录下创建 scripts 目录（如果没有的话），在该目录下创建一个 JavaScript 脚本监听 hexo new 命令即可，脚本文件名任意。
-12345678910var exec = require(&apos;child_process&apos;).exec;// Hexo 2.xhexo.on(&apos;new&apos;, function(path)&amp;#">
+<meta name="twitter:description" content="【在 OS X 上操作，部分适用于 Linux】
+2016.7.14添加新文章后自动用文本编辑器打开在 Blog 目录下创建 scripts 目录（如果没有的话），在该目录下创建一个 JavaScript 脚本监听 hexo new 命令即可，脚本文件名任意。
+12345678910var exec = require(&apos;child_process&apos;).exec;// Hexo 2.xhexo.o">
 <meta name="twitter:image" content="http://joilence.github.io/images/MWeb-external-table.png">
 
 
@@ -284,7 +287,8 @@
       
 
       
-        <h1 id="2016-7-14"><a href="#2016-7-14" class="headerlink" title="2016.7.14"></a>2016.7.14</h1><h2 id="添加新文章后自动用文本编辑器打开"><a href="#添加新文章后自动用文本编辑器打开" class="headerlink" title="添加新文章后自动用文本编辑器打开"></a>添加新文章后自动用文本编辑器打开</h2><p>在 Blog 目录下创建 <code>scripts</code> 目录（如果没有的话），在该目录下创建一个 JavaScript 脚本监听 <code>hexo new</code> 命令即可，脚本文件名任意。</p>
+        <p>【在 OS X 上操作，部分适用于 Linux】</p>
+<h1 id="2016-7-14"><a href="#2016-7-14" class="headerlink" title="2016.7.14"></a>2016.7.14</h1><h2 id="添加新文章后自动用文本编辑器打开"><a href="#添加新文章后自动用文本编辑器打开" class="headerlink" title="添加新文章后自动用文本编辑器打开"></a>添加新文章后自动用文本编辑器打开</h2><p>在 Blog 目录下创建 <code>scripts</code> 目录（如果没有的话），在该目录下创建一个 JavaScript 脚本监听 <code>hexo new</code> 命令即可，脚本文件名任意。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> exec = <span class="built_in">require</span>(<span class="string">'child_process'</span>).exec;</div><div class="line"></div><div class="line"><span class="comment">// Hexo 2.x</span></div><div class="line">hexo.on(<span class="string">'new'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">path</span>)</span>&#123;</div><div class="line">    exec(<span class="string">'open -a "Application/YourEditor.app" '</span> + path);</div><div class="line">&#125;);</div><div class="line"><span class="comment">// Hexo 3</span></div><div class="line">hexo.on(<span class="string">'new'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">    exec(<span class="string">'open -a "Application/YourEditor.app" '</span> + data.path);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>Github Hexo 相关 Issue：<br><a href="https://github.com/hexojs/hexo/issues/1007" target="_blank" rel="external">Open markdown file after running hexo new?</a></p>
 <h2 id="使用-MWeb-配合-Hexo-写博客"><a href="#使用-MWeb-配合-Hexo-写博客" class="headerlink" title="使用 MWeb 配合 Hexo 写博客"></a>使用 MWeb 配合 Hexo 写博客</h2><p>打开 MWeb，按下 <code>Cmd + E</code> 进入外部模式，将 Blog 目录下的 source 文件夹加入到 External Source 列表中。</p>
@@ -394,7 +398,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>

@@ -240,6 +240,117 @@
             
               
                 
+                <a class="post-title-link" href="/2016/07/22/macbook-partition-problem/" itemprop="url">
+                  OS X 使用 Disk Utility 分区后无法回收及后续问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-07-22T23:10:34+08:00" content="2016-07-22">
+              2016-07-22
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>【OS X 10.11.5】</p>
+<p>// 此处应有故事起因</p>
+<p>然后手快拿 Disk Utility 分了区，分了 75G 出去。</p>
+<p>// 此处应有故事过程</p>
+<p>然后之间点击 Partition，把饼状图中之前的分区通过点击下方 <code>-</code> 按钮移除，于是出现了以下情况： </p>
+<p><img src="/images/Disk-Utility-SSD.png" alt="Disk-Utility-SSD"><br><img src="/images/Disk-Utility-Partition.png" alt="Disk-Utility-Partition"><br>分区的确是删除了，APPLE SSD 也依然是 500G 容量但是分区的空间并没有被 Macintosh HD 回收。迷之消失的 75G。</p>
+<p>打开终端，输入 <code>diskutil list</code>，回车。</p>
+<p><img src="/images/diskutil-list.png" alt="diskutil-list"></p>
+<p>发现 Recovery HD 变成了 75G，也就是说，移除的分区被 Recovery HD 吃掉了。那么是不是只要把 Recovery HD resize 一下就好呢？然而…</p>
+<p><img src="/images/diskutil-resize.png" alt="diskutil-resize"></p>
+<p>并不行。</p>
+<p>问过 Apple Genius 之后，得知这个是一个存在很久的 Bug，当你在使用逻辑卷宗（比如使用了 FireVault 加密）时，直接移除分区，Recovery HD 就会直接吞掉分区容量。现在的办法只有把盘格式化掉再重装系统了。</p>
+<p>重装完成后，发现虽然 Recovery HD 还在，但无法进入恢复模式。进入后屏幕左上角会提示如上信息。</p>
+<p><img src="/images/cannot-enter-recovery-hd.png" alt="cannot-enter-recovery-hd"></p>
+<p>接着就开始自动重启。</p>
+<p>再次求助 Apple Genius，Genius 表示也不太清楚是什么问题，做了硬盘测试，没有发现问题。随后再次重装系统测试，此时 Genius 给我讲了一个非官方的「古老」方法解决各种奇奇怪怪的硬盘问题。</p>
+<p>当要格式化 APPLE SSD 时，选择 Erase，然后更改 Partition Scheme 为 <a href="https://en.wikipedia.org/wiki/Apple_Partition_Map" target="_blank" rel="external">Apple Partition Map</a>，格式化完成之后再格式化回 GUID Partition 即可。</p>
+<p>Genius 表示也不知道为什么… 反正就是有效果，尤其是针对一些老设备。当然对我这台 MacbookPro12,1（2015 Late）似乎也生效了。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/07/18/linux-and-macbookair/" itemprop="url">
                   给 Macbook Air 安装 Linux
                 </a>
@@ -394,7 +505,8 @@
       
         
           
-            <h1 id="2016-7-14"><a href="#2016-7-14" class="headerlink" title="2016.7.14"></a>2016.7.14</h1><h2 id="添加新文章后自动用文本编辑器打开"><a href="#添加新文章后自动用文本编辑器打开" class="headerlink" title="添加新文章后自动用文本编辑器打开"></a>添加新文章后自动用文本编辑器打开</h2><p>在 Blog 目录下创建 <code>scripts</code> 目录（如果没有的话），在该目录下创建一个 JavaScript 脚本监听 <code>hexo new</code> 命令即可，脚本文件名任意。</p>
+            <p>【在 OS X 上操作，部分适用于 Linux】</p>
+<h1 id="2016-7-14"><a href="#2016-7-14" class="headerlink" title="2016.7.14"></a>2016.7.14</h1><h2 id="添加新文章后自动用文本编辑器打开"><a href="#添加新文章后自动用文本编辑器打开" class="headerlink" title="添加新文章后自动用文本编辑器打开"></a>添加新文章后自动用文本编辑器打开</h2><p>在 Blog 目录下创建 <code>scripts</code> 目录（如果没有的话），在该目录下创建一个 JavaScript 脚本监听 <code>hexo new</code> 命令即可，脚本文件名任意。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> exec = <span class="built_in">require</span>(<span class="string">'child_process'</span>).exec;</div><div class="line"></div><div class="line"><span class="comment">// Hexo 2.x</span></div><div class="line">hexo.on(<span class="string">'new'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">path</span>)</span>&#123;</div><div class="line">    exec(<span class="string">'open -a "Application/YourEditor.app" '</span> + path);</div><div class="line">&#125;);</div><div class="line"><span class="comment">// Hexo 3</span></div><div class="line">hexo.on(<span class="string">'new'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">    exec(<span class="string">'open -a "Application/YourEditor.app" '</span> + data.path);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>Github Hexo 相关 Issue：<br><a href="https://github.com/hexojs/hexo/issues/1007" target="_blank" rel="external">Open markdown file after running hexo new?</a></p>
 <h2 id="使用-MWeb-配合-Hexo-写博客"><a href="#使用-MWeb-配合-Hexo-写博客" class="headerlink" title="使用 MWeb 配合 Hexo 写博客"></a>使用 MWeb 配合 Hexo 写博客</h2><p>打开 MWeb，按下 <code>Cmd + E</code> 进入外部模式，将 Blog 目录下的 source 文件夹加入到 External Source 列表中。</p>
@@ -495,7 +607,8 @@
       
         
           
-            <h1 id="相关"><a href="#相关" class="headerlink" title="相关"></a>相关</h1><ul>
+            <p>【在 OS X 上操作，部分适用于 Linux】</p>
+<h1 id="相关"><a href="#相关" class="headerlink" title="相关"></a>相关</h1><ul>
 <li><p>Hexo</p>
 <p>Hexo 是一个静态博客框架。你只需要在本地使用 Hexo 生成静态页面，并部署到代码托管平台，即可通过网站访问博客页面。</p>
 </li>
@@ -595,7 +708,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
