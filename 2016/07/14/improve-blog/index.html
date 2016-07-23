@@ -87,23 +87,23 @@
 
 
 <meta name="description" content="【在 OS X 上操作，部分适用于 Linux】
-2016.7.14添加新文章后自动用文本编辑器打开在 Blog 目录下创建 scripts 目录（如果没有的话），在该目录下创建一个 JavaScript 脚本监听 hexo new 命令即可，脚本文件名任意。
-12345678910var exec = require(&apos;child_process&apos;).exec;// Hexo 2.xhexo.o">
+2016.7.23去除 NexT-Mist 主题的图片边框编辑 Blog/themes/next/source/css/_common/components/post/post-expand.styl，将 Line 52 处 border 后的像素数改为 0px。
+2016.7.14添加新文章后自动用文本编辑器打开在 Blog 目录下创建 scri">
 <meta property="og:type" content="article">
 <meta property="og:title" content="博客搭建与工作流">
 <meta property="og:url" content="http://joilence.github.io/2016/07/14/improve-blog/index.html">
 <meta property="og:site_name" content="Joilence">
 <meta property="og:description" content="【在 OS X 上操作，部分适用于 Linux】
-2016.7.14添加新文章后自动用文本编辑器打开在 Blog 目录下创建 scripts 目录（如果没有的话），在该目录下创建一个 JavaScript 脚本监听 hexo new 命令即可，脚本文件名任意。
-12345678910var exec = require(&apos;child_process&apos;).exec;// Hexo 2.xhexo.o">
+2016.7.23去除 NexT-Mist 主题的图片边框编辑 Blog/themes/next/source/css/_common/components/post/post-expand.styl，将 Line 52 处 border 后的像素数改为 0px。
+2016.7.14添加新文章后自动用文本编辑器打开在 Blog 目录下创建 scri">
 <meta property="og:image" content="http://joilence.github.io/images/MWeb-external-table.png">
 <meta property="og:image" content="http://joilence.github.io/images/MWeb-external-source-edit.png">
-<meta property="og:updated_time" content="2016-07-22T15:13:32.000Z">
+<meta property="og:updated_time" content="2016-07-23T03:10:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="博客搭建与工作流">
 <meta name="twitter:description" content="【在 OS X 上操作，部分适用于 Linux】
-2016.7.14添加新文章后自动用文本编辑器打开在 Blog 目录下创建 scripts 目录（如果没有的话），在该目录下创建一个 JavaScript 脚本监听 hexo new 命令即可，脚本文件名任意。
-12345678910var exec = require(&apos;child_process&apos;).exec;// Hexo 2.xhexo.o">
+2016.7.23去除 NexT-Mist 主题的图片边框编辑 Blog/themes/next/source/css/_common/components/post/post-expand.styl，将 Line 52 处 border 后的像素数改为 0px。
+2016.7.14添加新文章后自动用文本编辑器打开在 Blog 目录下创建 scri">
 <meta name="twitter:image" content="http://joilence.github.io/images/MWeb-external-table.png">
 
 
@@ -288,6 +288,7 @@
 
       
         <p>【在 OS X 上操作，部分适用于 Linux】</p>
+<h1 id="2016-7-23"><a href="#2016-7-23" class="headerlink" title="2016.7.23"></a>2016.7.23</h1><h2 id="去除-NexT-Mist-主题的图片边框"><a href="#去除-NexT-Mist-主题的图片边框" class="headerlink" title="去除 NexT-Mist 主题的图片边框"></a>去除 NexT-Mist 主题的图片边框</h2><p>编辑 <code>Blog/themes/next/source/css/_common/components/post/post-expand.styl</code>，将 Line 52 处 border 后的像素数改为 0px。</p>
 <h1 id="2016-7-14"><a href="#2016-7-14" class="headerlink" title="2016.7.14"></a>2016.7.14</h1><h2 id="添加新文章后自动用文本编辑器打开"><a href="#添加新文章后自动用文本编辑器打开" class="headerlink" title="添加新文章后自动用文本编辑器打开"></a>添加新文章后自动用文本编辑器打开</h2><p>在 Blog 目录下创建 <code>scripts</code> 目录（如果没有的话），在该目录下创建一个 JavaScript 脚本监听 <code>hexo new</code> 命令即可，脚本文件名任意。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> exec = <span class="built_in">require</span>(<span class="string">'child_process'</span>).exec;</div><div class="line"></div><div class="line"><span class="comment">// Hexo 2.x</span></div><div class="line">hexo.on(<span class="string">'new'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">path</span>)</span>&#123;</div><div class="line">    exec(<span class="string">'open -a "Application/YourEditor.app" '</span> + path);</div><div class="line">&#125;);</div><div class="line"><span class="comment">// Hexo 3</span></div><div class="line">hexo.on(<span class="string">'new'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">    exec(<span class="string">'open -a "Application/YourEditor.app" '</span> + data.path);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>Github Hexo 相关 Issue：<br><a href="https://github.com/hexojs/hexo/issues/1007" target="_blank" rel="external">Open markdown file after running hexo new?</a></p>
@@ -464,7 +465,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2016-7-14"><span class="nav-number">1.</span> <span class="nav-text">2016.7.14</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#添加新文章后自动用文本编辑器打开"><span class="nav-number">1.1.</span> <span class="nav-text">添加新文章后自动用文本编辑器打开</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-MWeb-配合-Hexo-写博客"><span class="nav-number">1.2.</span> <span class="nav-text">使用 MWeb 配合 Hexo 写博客</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2016-7-23"><span class="nav-number">1.</span> <span class="nav-text">2016.7.23</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#去除-NexT-Mist-主题的图片边框"><span class="nav-number">1.1.</span> <span class="nav-text">去除 NexT-Mist 主题的图片边框</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2016-7-14"><span class="nav-number">2.</span> <span class="nav-text">2016.7.14</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#添加新文章后自动用文本编辑器打开"><span class="nav-number">2.1.</span> <span class="nav-text">添加新文章后自动用文本编辑器打开</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-MWeb-配合-Hexo-写博客"><span class="nav-number">2.2.</span> <span class="nav-text">使用 MWeb 配合 Hexo 写博客</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
