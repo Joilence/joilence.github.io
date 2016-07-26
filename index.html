@@ -240,6 +240,119 @@
             
               
                 
+                <a class="post-title-link" href="/2016/07/26/os-x-disk-space-and-hidden-space/" itemprop="url">
+                  OS X 删除文件后系统可用空间未增加
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-07-26T12:37:45+08:00" content="2016-07-26">
+              2016-07-26
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>【OS X 10.11.5】</p>
+<p>打算用 Boot Camp 装 Win 玩守望先锋，发现空间不够。于是想要把一些大文件拷贝进移动硬盘里。</p>
+<p>1）先用 <code>Cmd + C</code> 复制文件，然后再在移动硬盘里使用 <code>Cmd + Opt + V</code> 将文件移动进入移动硬盘。系统中被移动的文件已经消失，但是发现系统可用空间并没有增加。</p>
+<p>2）再使用 <code>Cmd + C</code> 复制文件，直接 <code>Cmd + V</code> 粘贴进移动硬盘，然后在本地删除，清空废纸篓。然而系统可用空间并没有增加。</p>
+<p>为了查看被删除的文件去了哪里，想要借助 DaisyDisk 来查看。</p>
+<p>经过再一次实验后，发现被删除的文件似乎被移动到了另一个地方，在 DaisyDisk 上显示为 <code>(hidden space)</code><sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>，没有权限查看。</p>
+<p><img src="/images/daisydisk-hidden-space.png" alt="daisydisk-hidden-space"></p>
+<p>于是…</p>
+<p>1）由于我使用了 Time Machine 并且没有插上我用作 Time Machine 备份的硬盘，那么有理由怀疑这是 Time Machine 的本地快照（Local Snapshot）。但是我接上硬盘开启备份后，显示下一个备份只有 27 MB，与我之前删除将近 50 GB 的文件明显不符，于是排除这个可能。</p>
+<p>2）去 Genius Bar 进行了一次硬盘检测，据说会做一些非意识性数据的删除，之后查看空间，依然未变。</p>
+<p>3）最后尝试重启 <code>Cmd + R</code> 进入恢复模式，用 Disk Utility 对 APPLE SSD 进行 First Aid，再重启，查看空间，依然没变。</p>
+<p>但是此时打开 Boot Camp 分区，已经可以分出超过可用空间大小的分区。</p>
+<p>- -，所以，这是 Apple 自己的坑吧…</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a href="https://daisydiskapp.com/manual/2/en/Topics/HiddenSpace.html" target="_blank" rel="external">DaisyDisk 官网对 Hidden Space 的解释</a> <a href="#fnref1" class="footnote-backref">↩</a></p>
+</li>
+</ol>
+</section>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/07/22/macbook-partition-problem/" itemprop="url">
                   OS X 使用 Disk Utility 分区后无法回收及后续问题
                 </a>
@@ -288,8 +401,10 @@
 <p>// 此处应有故事起因</p>
 <p>然后手快拿 Disk Utility 分了区，分了 75G 出去。</p>
 <p>// 此处应有故事过程</p>
-<p>然后之间点击 Partition，把饼状图中之前的分区通过点击下方 <code>-</code> 按钮移除，于是出现了以下情况： </p>
-<p><img src="/images/Disk-Utility-SSD.png" alt="Disk-Utility-SSD"><br><img src="/images/Disk-Utility-Partition.png" alt="Disk-Utility-Partition"><br>分区的确是删除了，APPLE SSD 也依然是 500G 容量但是分区的空间并没有被 Macintosh HD 回收。迷之消失的 75G。</p>
+<p>然后之间点击 Partition，把饼状图中之前的分区通过点击下方 <code>-</code> 按钮移除，于是出现了以下情况：</p>
+<p><img src="/images/Disk-Utility-SSD.png" alt="Disk-Utility-SSD"><br>
+<img src="/images/Disk-Utility-Partition.png" alt="Disk-Utility-Partition"><br>
+分区的确是删除了，APPLE SSD 也依然是 500G 容量但是分区的空间并没有被 Macintosh HD 回收。迷之消失的 75G。</p>
 <p>打开终端，输入 <code>diskutil list</code>，回车。</p>
 <p><img src="/images/diskutil-list.png" alt="diskutil-list"></p>
 <p>发现 Recovery HD 变成了 75G，也就是说，移除的分区被 Recovery HD 吃掉了。那么是不是只要把 Recovery HD resize 一下就好呢？然而…</p>
@@ -462,7 +577,7 @@
               
                 
                 <a class="post-title-link" href="/2016/07/14/improve-blog/" itemprop="url">
-                  博客搭建与工作流
+                  Hexo 博客进阶配置与常见问题
                 </a>
               
             
@@ -506,15 +621,44 @@
         
           
             <p>【在 OS X 上操作，部分适用于 Linux】</p>
-<h1 id="2016-7-23"><a href="#2016-7-23" class="headerlink" title="2016.7.23"></a>2016.7.23</h1><h2 id="去除-NexT-Mist-主题的图片边框"><a href="#去除-NexT-Mist-主题的图片边框" class="headerlink" title="去除 NexT-Mist 主题的图片边框"></a>去除 NexT-Mist 主题的图片边框</h2><p>编辑 <code>Blog/themes/next/source/css/_common/components/post/post-expand.styl</code>，将 Line 52 处 border 后的像素数改为 0px。</p>
-<h1 id="2016-7-14"><a href="#2016-7-14" class="headerlink" title="2016.7.14"></a>2016.7.14</h1><h2 id="添加新文章后自动用文本编辑器打开"><a href="#添加新文章后自动用文本编辑器打开" class="headerlink" title="添加新文章后自动用文本编辑器打开"></a>添加新文章后自动用文本编辑器打开</h2><p>在 Blog 目录下创建 <code>scripts</code> 目录（如果没有的话），在该目录下创建一个 JavaScript 脚本监听 <code>hexo new</code> 命令即可，脚本文件名任意。</p>
+<h1 id="2016-7-26"><a class="header-anchor" href="#2016-7-26"> </a>2016.7.26</h1>
+<h2 id="使-hexo-支持脚注-footnote-以及-emoji"><a class="header-anchor" href="#使-hexo-支持脚注-footnote-以及-emoji"> </a>使 Hexo 支持脚注（Footnote）以及 Emoji</h2>
+<p>更换 Markdown 渲染插件。</p>
+<p><code>cd</code> 进入 Hexo Blog 主目录，移除 Hexo 默认的 <code>hexo-renderer-marked</code>，安装 <code>hexo-renderer-markdown-it</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ npm un hexo-renderer-marked --save</div><div class="line">$ npm i hexo-renderer-markdown-it --save</div></pre></td></tr></table></figure>
+<p>为了使 Hexo 支持 Emoji，还需要进入 <code>hexo-renderer-markdown-it</code> 目录里，安装支持 Emoji 的插件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd node_modules/hexo-renderer-markdown-it/</div><div class="line">$ npm i markdown-it-emoji --save</div></pre></td></tr></table></figure>
+<p>在博客根目录下的 <code>_config.yml</code> 中，添加以下字段（以下是我的配置）：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="attr">markdown:</span></div><div class="line"><span class="attr">  render:</span></div><div class="line"><span class="attr">    html:</span> <span class="literal">true</span></div><div class="line"><span class="attr">    xhtmlOut:</span> <span class="literal">false</span></div><div class="line"><span class="attr">    breaks:</span> <span class="literal">false</span></div><div class="line"><span class="attr">    linkify:</span> <span class="literal">true</span></div><div class="line"><span class="attr">    typographer:</span> <span class="literal">true</span></div><div class="line"><span class="attr">    quotes:</span> <span class="string">'“”‘’'</span></div><div class="line"><span class="attr">  plugins:</span></div><div class="line"><span class="bullet">    -</span> markdown-it-footnote</div><div class="line"><span class="bullet">    -</span> markdown-it-sup</div><div class="line"><span class="bullet">    -</span> markdown-it-sub</div><div class="line"><span class="bullet">    -</span> markdown-it-abbr</div><div class="line"><span class="bullet">    -</span> markdown-it-emoji</div><div class="line"><span class="attr">  anchors:</span></div><div class="line"><span class="attr">    level:</span> <span class="number">1</span></div><div class="line"><span class="attr">    collisionSuffix:</span> <span class="string">'v'</span></div><div class="line"><span class="attr">    permalink:</span> <span class="literal">true</span></div><div class="line"><span class="attr">    permalinkClass:</span> header-anchor</div><div class="line"><span class="attr">    permalinkSymbol:</span> <span class="string">' '</span></div></pre></td></tr></table></figure>
+<p>参考文献：</p>
+<ol>
+<li><a href="https://ppxu.me/2015/12/24/enable-emoji-in-hexo/" target="_blank" rel="external">让Hexo支持emoji表情</a></li>
+<li><a href="https://github.com/celsomiranda/hexo-renderer-markdown-it" target="_blank" rel="external">Github: hexo-renderer-markdown-it</a></li>
+</ol>
+<h2 id="删除文章"><a class="header-anchor" href="#删除文章"> </a>删除文章</h2>
+<p>在使用 <code>hexo new</code> 生成新文章之后，想要删除，如果只是直接在 <code>/source/_post</code> 中将相关 md 文件删除，可能在生成网页后还会重现。删除文章比较完备的步骤如下：</p>
+<ol>
+<li>在 <code>/source/_post</code> 中删除相关 md 文件</li>
+<li>在博客根目录下使用 <code>sudo hexo clean</code></li>
+<li>删除博客根目录下的 <code>db.json</code> 文件</li>
+</ol>
+<p>再重新生成网页就可以了。</p>
+<h1 id="2016-7-23"><a class="header-anchor" href="#2016-7-23"> </a>2016.7.23</h1>
+<h2 id="去除-next-mist-主题的图片边框"><a class="header-anchor" href="#去除-next-mist-主题的图片边框"> </a>去除 NexT-Mist 主题的图片边框</h2>
+<p>编辑 <code>Blog/themes/next/source/css/_common/components/post/post-expand.styl</code>，将 Line 52 处 border 后的像素数改为 0px。</p>
+<h1 id="2016-7-14"><a class="header-anchor" href="#2016-7-14"> </a>2016.7.14</h1>
+<h2 id="添加新文章后自动用文本编辑器打开"><a class="header-anchor" href="#添加新文章后自动用文本编辑器打开"> </a>添加新文章后自动用文本编辑器打开</h2>
+<p>在 Blog 目录下创建 <code>scripts</code> 目录（如果没有的话），在该目录下创建一个 JavaScript 脚本监听 <code>hexo new</code> 命令即可，脚本文件名任意。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> exec = <span class="built_in">require</span>(<span class="string">'child_process'</span>).exec;</div><div class="line"></div><div class="line"><span class="comment">// Hexo 2.x</span></div><div class="line">hexo.on(<span class="string">'new'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">path</span>)</span>&#123;</div><div class="line">    exec(<span class="string">'open -a "Application/YourEditor.app" '</span> + path);</div><div class="line">&#125;);</div><div class="line"><span class="comment">// Hexo 3</span></div><div class="line">hexo.on(<span class="string">'new'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">    exec(<span class="string">'open -a "Application/YourEditor.app" '</span> + data.path);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>Github Hexo 相关 Issue：<br><a href="https://github.com/hexojs/hexo/issues/1007" target="_blank" rel="external">Open markdown file after running hexo new?</a></p>
-<h2 id="使用-MWeb-配合-Hexo-写博客"><a href="#使用-MWeb-配合-Hexo-写博客" class="headerlink" title="使用 MWeb 配合 Hexo 写博客"></a>使用 MWeb 配合 Hexo 写博客</h2><p>打开 MWeb，按下 <code>Cmd + E</code> 进入外部模式，将 Blog 目录下的 source 文件夹加入到 External Source 列表中。</p>
+<p>Github Hexo 相关 Issue：<br>
+<a href="https://github.com/hexojs/hexo/issues/1007" target="_blank" rel="external">Open markdown file after running hexo new?</a></p>
+<h2 id="使用-mweb-配合-hexo-写博客"><a class="header-anchor" href="#使用-mweb-配合-hexo-写博客"> </a>使用 MWeb 配合 Hexo 写博客</h2>
+<p>打开 MWeb，按下 <code>Cmd + E</code> 进入外部模式，将 Blog 目录下的 source 文件夹加入到 External Source 列表中。</p>
 <p><img src="/images/MWeb-external-table.png" alt="MWeb-external-table"></p>
 <p>则右部列表如上图可见。双击 source 文件夹名，可进入编辑界面。</p>
 <p><img src="/images/MWeb-external-source-edit.png" alt="MWeb-external-source-edit"></p>
-<p>修改 <code>Display Name</code> 可以修改 Library 展示的名称，但不会更改原目录的名称。<br>修改 <code>Media Folder Name</code> 以及 <code>Media Save Path</code> 可以修改博客图片存储的目录名及其路径。</p>
+<p>修改 <code>Display Name</code> 可以修改 Library 展示的名称，但不会更改原目录的名称。<br>
+修改 <code>Media Folder Name</code> 以及 <code>Media Save Path</code> 可以修改博客图片存储的目录名及其路径。</p>
 
           
         
@@ -609,27 +753,37 @@
         
           
             <p>【在 OS X 上操作，部分适用于 Linux】</p>
-<h1 id="相关"><a href="#相关" class="headerlink" title="相关"></a>相关</h1><ul>
-<li><p>Hexo</p>
+<h1 id="相关"><a class="header-anchor" href="#相关"> </a>相关</h1>
+<ul>
+<li>
+<p>Hexo</p>
 <p>Hexo 是一个静态博客框架。你只需要在本地使用 Hexo 生成静态页面，并部署到代码托管平台，即可通过网站访问博客页面。</p>
 </li>
-<li><p>GitHub Pages</p>
-<p>GitHub 的免费静态页面托管服务，可以使用 username.github.io 或者自定义域名来访问站点。</p>
+<li>
+<p>GitHub Pages</p>
+<p>GitHub 的免费静态页面托管服务，可以使用 <a href="http://username.github.io" target="_blank" rel="external">username.github.io</a> 或者自定义域名来访问站点。</p>
 </li>
 </ul>
-<h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><h2 id="GitHub-账户"><a href="#GitHub-账户" class="headerlink" title="GitHub 账户"></a>GitHub 账户</h2><p><a href="https://github.com/join" target="_blank" rel="external">注册 GitHub 账户</a></p>
-<h2 id="安装-Git，Node-js"><a href="#安装-Git，Node-js" class="headerlink" title="安装 Git，Node.js"></a>安装 Git，Node.js</h2><p>建议先安装 Homebrew，一个包管理器 (Package Manager)。</p>
+<h1 id="准备"><a class="header-anchor" href="#准备"> </a>准备</h1>
+<h2 id="github-账户"><a class="header-anchor" href="#github-账户"> </a>GitHub 账户</h2>
+<p><a href="https://github.com/join" target="_blank" rel="external">注册 GitHub 账户</a></p>
+<h2 id="安装-git-node-js"><a class="header-anchor" href="#安装-git-node-js"> </a>安装 Git，Node.js</h2>
+<p>建议先安装 Homebrew，一个包管理器 (Package Manager)。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ /usr/bin/ruby <span class="_">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></div></pre></td></tr></table></figure>
 <p>之后可以通过 Homebrew 来安装 Git，Node.js。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew install git node.js</div></pre></td></tr></table></figure>
-<h2 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h2><p>安装 Node.js 的过程中也会自动安装 npm，另一个包管理器。在 Terminal 使用 npm 安装 Hexo。同时因为我们希望用 GitHub Pages 来托管静态网页，所以需要安装 hero-generator-git。</p>
+<h2 id="安装-hexo"><a class="header-anchor" href="#安装-hexo"> </a>安装 Hexo</h2>
+<p>安装 Node.js 的过程中也会自动安装 npm，另一个包管理器。在 Terminal 使用 npm 安装 Hexo。同时因为我们希望用 GitHub Pages 来托管静态网页，所以需要安装 hero-generator-git。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo hexo-generator-git</div></pre></td></tr></table></figure>
-<h1 id="配置-Hexo"><a href="#配置-Hexo" class="headerlink" title="配置 Hexo"></a>配置 Hexo</h1><p>选择一个目录创建一个新的文件夹，通过 Terminal 使用 cd 命令访问这个文件夹，在该文件夹完成 Hexo 的初始化配置。</p>
+<h1 id="配置-hexo"><a class="header-anchor" href="#配置-hexo"> </a>配置 Hexo</h1>
+<p>选择一个目录创建一个新的文件夹，通过 Terminal 使用 cd 命令访问这个文件夹，在该文件夹完成 Hexo 的初始化配置。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init</div></pre></td></tr></table></figure>
 <p>此时运行以下指令进行测试。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
 <p>此时 Terminal 中会显示访问页面的方式，通常是 <code>localhost:4000</code>，访问即可看见 Hexo 初始的页面。</p>
-<h1 id="配置-GitHub-Pages"><a href="#配置-GitHub-Pages" class="headerlink" title="配置 GitHub Pages"></a><a href="https://pages.github.com" target="_blank" rel="external">配置 GitHub Pages</a></h1><h1 id="部署-Hexo-静态页面"><a href="#部署-Hexo-静态页面" class="headerlink" title="部署 Hexo 静态页面"></a>部署 Hexo 静态页面</h1><p>进入你的博客文件夹，使用文本编辑器打开 _config.yml 文件，编辑最下面的 deploy 部分。</p>
+<h1 id="配置-github-pages"><a class="header-anchor" href="#配置-github-pages"> </a><a href="https://pages.github.com" target="_blank" rel="external">配置 GitHub Pages</a></h1>
+<h1 id="部署-hexo-静态页面"><a class="header-anchor" href="#部署-hexo-静态页面"> </a>部署 Hexo 静态页面</h1>
+<p>进入你的博客文件夹，使用文本编辑器打开 _config.yml 文件，编辑最下面的 deploy 部分。</p>
 <p>如果配置 GitHub Pages 中你选择使用 User site，修改为以下样式。</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="attr">deploy:</span></div><div class="line"><span class="attr">  type:</span> git</div><div class="line"><span class="attr">  repository:</span> https://github.com/[username]/[username].github.io.git</div><div class="line"><span class="attr">  branch:</span> master</div></pre></td></tr></table></figure>
 <p>如果配置 GitHub Pages 中你选择使用 Project Site，则修改为以下样式。</p>
@@ -638,7 +792,8 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
 <p>某些情况下，当你遇到<code>Fatal</code>,<code>Error</code> 等字眼时，可以重新使用 <code>sudo</code> 运行以上指令。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo hexo generate</div><div class="line">$ sudo hexo deploy</div></pre></td></tr></table></figure>
-<h1 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h1><p>发布博文，以及 Hexo 的详细配置，推荐 <a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">Hexo 官方文档</a></p>
+<h1 id="更多"><a class="header-anchor" href="#更多"> </a>更多</h1>
+<p>发布博文，以及 Hexo 的详细配置，推荐 <a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">Hexo 官方文档</a></p>
 <p>推荐 Hexo 博客主题 <a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">NexT</a>，同样有详细说明。</p>
 
           
@@ -709,7 +864,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>

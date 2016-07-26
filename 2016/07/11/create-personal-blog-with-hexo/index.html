@@ -87,45 +87,57 @@
 
 
 <meta name="description" content="【在 OS X 上操作，部分适用于 Linux】
-相关
+ 相关
+
+
 Hexo
 Hexo 是一个静态博客框架。你只需要在本地使用 Hexo 生成静态页面，并部署到代码托管平台，即可通过网站访问博客页面。
+
 
 GitHub Pages
 GitHub 的免费静态页面托管服务，可以使用 username.github.io 或者自定义域名来访问站点。
 
 
-准备GitHub 账户注册 GitHub 账户
-安装 Git，N">
+ 准备
+ GitHub 账户
+注册 GitHub 账户">
 <meta property="og:type" content="article">
 <meta property="og:title" content="搭建个人博客：Hexo & GitHub Pages">
 <meta property="og:url" content="http://joilence.github.io/2016/07/11/create-personal-blog-with-hexo/index.html">
 <meta property="og:site_name" content="Joilence">
 <meta property="og:description" content="【在 OS X 上操作，部分适用于 Linux】
-相关
+ 相关
+
+
 Hexo
 Hexo 是一个静态博客框架。你只需要在本地使用 Hexo 生成静态页面，并部署到代码托管平台，即可通过网站访问博客页面。
+
 
 GitHub Pages
 GitHub 的免费静态页面托管服务，可以使用 username.github.io 或者自定义域名来访问站点。
 
 
-准备GitHub 账户注册 GitHub 账户
-安装 Git，N">
-<meta property="og:updated_time" content="2016-07-22T15:13:33.000Z">
+ 准备
+ GitHub 账户
+注册 GitHub 账户">
+<meta property="og:updated_time" content="2016-07-26T09:16:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建个人博客：Hexo & GitHub Pages">
 <meta name="twitter:description" content="【在 OS X 上操作，部分适用于 Linux】
-相关
+ 相关
+
+
 Hexo
 Hexo 是一个静态博客框架。你只需要在本地使用 Hexo 生成静态页面，并部署到代码托管平台，即可通过网站访问博客页面。
+
 
 GitHub Pages
 GitHub 的免费静态页面托管服务，可以使用 username.github.io 或者自定义域名来访问站点。
 
 
-准备GitHub 账户注册 GitHub 账户
-安装 Git，N">
+ 准备
+ GitHub 账户
+注册 GitHub 账户">
 
 
 
@@ -309,27 +321,37 @@ GitHub 的免费静态页面托管服务，可以使用 username.github.io 或�
 
       
         <p>【在 OS X 上操作，部分适用于 Linux】</p>
-<h1 id="相关"><a href="#相关" class="headerlink" title="相关"></a>相关</h1><ul>
-<li><p>Hexo</p>
+<h1 id="相关"><a class="header-anchor" href="#相关"> </a>相关</h1>
+<ul>
+<li>
+<p>Hexo</p>
 <p>Hexo 是一个静态博客框架。你只需要在本地使用 Hexo 生成静态页面，并部署到代码托管平台，即可通过网站访问博客页面。</p>
 </li>
-<li><p>GitHub Pages</p>
-<p>GitHub 的免费静态页面托管服务，可以使用 username.github.io 或者自定义域名来访问站点。</p>
+<li>
+<p>GitHub Pages</p>
+<p>GitHub 的免费静态页面托管服务，可以使用 <a href="http://username.github.io" target="_blank" rel="external">username.github.io</a> 或者自定义域名来访问站点。</p>
 </li>
 </ul>
-<h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><h2 id="GitHub-账户"><a href="#GitHub-账户" class="headerlink" title="GitHub 账户"></a>GitHub 账户</h2><p><a href="https://github.com/join" target="_blank" rel="external">注册 GitHub 账户</a></p>
-<h2 id="安装-Git，Node-js"><a href="#安装-Git，Node-js" class="headerlink" title="安装 Git，Node.js"></a>安装 Git，Node.js</h2><p>建议先安装 Homebrew，一个包管理器 (Package Manager)。</p>
+<h1 id="准备"><a class="header-anchor" href="#准备"> </a>准备</h1>
+<h2 id="github-账户"><a class="header-anchor" href="#github-账户"> </a>GitHub 账户</h2>
+<p><a href="https://github.com/join" target="_blank" rel="external">注册 GitHub 账户</a></p>
+<h2 id="安装-git-node-js"><a class="header-anchor" href="#安装-git-node-js"> </a>安装 Git，Node.js</h2>
+<p>建议先安装 Homebrew，一个包管理器 (Package Manager)。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ /usr/bin/ruby <span class="_">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></div></pre></td></tr></table></figure>
 <p>之后可以通过 Homebrew 来安装 Git，Node.js。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew install git node.js</div></pre></td></tr></table></figure>
-<h2 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h2><p>安装 Node.js 的过程中也会自动安装 npm，另一个包管理器。在 Terminal 使用 npm 安装 Hexo。同时因为我们希望用 GitHub Pages 来托管静态网页，所以需要安装 hero-generator-git。</p>
+<h2 id="安装-hexo"><a class="header-anchor" href="#安装-hexo"> </a>安装 Hexo</h2>
+<p>安装 Node.js 的过程中也会自动安装 npm，另一个包管理器。在 Terminal 使用 npm 安装 Hexo。同时因为我们希望用 GitHub Pages 来托管静态网页，所以需要安装 hero-generator-git。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo hexo-generator-git</div></pre></td></tr></table></figure>
-<h1 id="配置-Hexo"><a href="#配置-Hexo" class="headerlink" title="配置 Hexo"></a>配置 Hexo</h1><p>选择一个目录创建一个新的文件夹，通过 Terminal 使用 cd 命令访问这个文件夹，在该文件夹完成 Hexo 的初始化配置。</p>
+<h1 id="配置-hexo"><a class="header-anchor" href="#配置-hexo"> </a>配置 Hexo</h1>
+<p>选择一个目录创建一个新的文件夹，通过 Terminal 使用 cd 命令访问这个文件夹，在该文件夹完成 Hexo 的初始化配置。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init</div></pre></td></tr></table></figure>
 <p>此时运行以下指令进行测试。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
 <p>此时 Terminal 中会显示访问页面的方式，通常是 <code>localhost:4000</code>，访问即可看见 Hexo 初始的页面。</p>
-<h1 id="配置-GitHub-Pages"><a href="#配置-GitHub-Pages" class="headerlink" title="配置 GitHub Pages"></a><a href="https://pages.github.com" target="_blank" rel="external">配置 GitHub Pages</a></h1><h1 id="部署-Hexo-静态页面"><a href="#部署-Hexo-静态页面" class="headerlink" title="部署 Hexo 静态页面"></a>部署 Hexo 静态页面</h1><p>进入你的博客文件夹，使用文本编辑器打开 _config.yml 文件，编辑最下面的 deploy 部分。</p>
+<h1 id="配置-github-pages"><a class="header-anchor" href="#配置-github-pages"> </a><a href="https://pages.github.com" target="_blank" rel="external">配置 GitHub Pages</a></h1>
+<h1 id="部署-hexo-静态页面"><a class="header-anchor" href="#部署-hexo-静态页面"> </a>部署 Hexo 静态页面</h1>
+<p>进入你的博客文件夹，使用文本编辑器打开 _config.yml 文件，编辑最下面的 deploy 部分。</p>
 <p>如果配置 GitHub Pages 中你选择使用 User site，修改为以下样式。</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="attr">deploy:</span></div><div class="line"><span class="attr">  type:</span> git</div><div class="line"><span class="attr">  repository:</span> https://github.com/[username]/[username].github.io.git</div><div class="line"><span class="attr">  branch:</span> master</div></pre></td></tr></table></figure>
 <p>如果配置 GitHub Pages 中你选择使用 Project Site，则修改为以下样式。</p>
@@ -338,7 +360,8 @@ GitHub 的免费静态页面托管服务，可以使用 username.github.io 或�
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
 <p>某些情况下，当你遇到<code>Fatal</code>,<code>Error</code> 等字眼时，可以重新使用 <code>sudo</code> 运行以上指令。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo hexo generate</div><div class="line">$ sudo hexo deploy</div></pre></td></tr></table></figure>
-<h1 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h1><p>发布博文，以及 Hexo 的详细配置，推荐 <a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">Hexo 官方文档</a></p>
+<h1 id="更多"><a class="header-anchor" href="#更多"> </a>更多</h1>
+<p>发布博文，以及 Hexo 的详细配置，推荐 <a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">Hexo 官方文档</a></p>
 <p>推荐 Hexo 博客主题 <a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">NexT</a>，同样有详细说明。</p>
 
       
@@ -368,8 +391,8 @@ GitHub 的免费静态页面托管服务，可以使用 username.github.io 或�
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/07/14/improve-blog/" rel="prev" title="博客搭建与工作流">
-                博客搭建与工作流 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/07/14/improve-blog/" rel="prev" title="Hexo 博客进阶配置与常见问题">
+                Hexo 博客进阶配置与常见问题 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -438,7 +461,7 @@ GitHub 的免费静态页面托管服务，可以使用 username.github.io 或�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -504,7 +527,7 @@ GitHub 的免费静态页面托管服务，可以使用 username.github.io 或�
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#相关"><span class="nav-number">1.</span> <span class="nav-text">相关</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#准备"><span class="nav-number">2.</span> <span class="nav-text">准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#GitHub-账户"><span class="nav-number">2.1.</span> <span class="nav-text">GitHub 账户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-Git，Node-js"><span class="nav-number">2.2.</span> <span class="nav-text">安装 Git，Node.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-Hexo"><span class="nav-number">2.3.</span> <span class="nav-text">安装 Hexo</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置-Hexo"><span class="nav-number">3.</span> <span class="nav-text">配置 Hexo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置-GitHub-Pages"><span class="nav-number">4.</span> <span class="nav-text">配置 GitHub Pages</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#部署-Hexo-静态页面"><span class="nav-number">5.</span> <span class="nav-text">部署 Hexo 静态页面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#更多"><span class="nav-number">6.</span> <span class="nav-text">更多</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#相关"><span class="nav-number">1.</span> <span class="nav-text"> 相关</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#准备"><span class="nav-number">2.</span> <span class="nav-text"> 准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#github-账户"><span class="nav-number">2.1.</span> <span class="nav-text"> GitHub 账户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-git-node-js"><span class="nav-number">2.2.</span> <span class="nav-text"> 安装 Git，Node.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-hexo"><span class="nav-number">2.3.</span> <span class="nav-text"> 安装 Hexo</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置-hexo"><span class="nav-number">3.</span> <span class="nav-text"> 配置 Hexo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置-github-pages"><span class="nav-number">4.</span> <span class="nav-text"> 配置 GitHub Pages</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#部署-hexo-静态页面"><span class="nav-number">5.</span> <span class="nav-text"> 部署 Hexo 静态页面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#更多"><span class="nav-number">6.</span> <span class="nav-text"> 更多</span></a></li></ol></div>
             
           </div>
         </section>
