@@ -87,45 +87,32 @@
 
 
 <meta name="description" content="【OS X 10.11.5】
-// 此处应有故事起因
-然后手快拿 Disk Utility 分了区，分了 75G 出去。
-// 此处应有故事过程
-然后之间点击 Partition，把饼状图中之前的分区通过点击下方 - 按钮移除，于是出现了以下情况：
-
-
-分区的确是删除了，APPLE SSD 也依然是 500G 容量但是分区的空间并没有被 Macintosh HD 回收。迷之消失的 75G。
-打开终">
+ 前情提要
+不太确定是 2015 年后 Macbook 的因素还是 OS X 10.11 的因素，Boot Camp 安装的方式发生了改变。
+根据官网只提供了 2015 年以前的 Boot Camp Assistant 的下载，推测多半是硬件因素。
+ 安装流程
+新 Boot Camp 双系统的安装不再需要使用外部 U 盘来创建安装盘，同时也不会自动在成功安装后的 Wi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OS X 使用 Disk Utility 分区后无法回收及后续问题">
-<meta property="og:url" content="http://joilence.github.io/2016/07/22/macbook-partition-problem/index.html">
+<meta property="og:title" content="2015年后的 Macbook 的 Boot Camp 安装问题">
+<meta property="og:url" content="http://joilence.github.io/2016/07/26/boot-camp-on-2015-and-later-macbook/index.html">
 <meta property="og:site_name" content="Joilence">
 <meta property="og:description" content="【OS X 10.11.5】
-// 此处应有故事起因
-然后手快拿 Disk Utility 分了区，分了 75G 出去。
-// 此处应有故事过程
-然后之间点击 Partition，把饼状图中之前的分区通过点击下方 - 按钮移除，于是出现了以下情况：
-
-
-分区的确是删除了，APPLE SSD 也依然是 500G 容量但是分区的空间并没有被 Macintosh HD 回收。迷之消失的 75G。
-打开终">
-<meta property="og:image" content="http://joilence.github.io/images/Disk-Utility-SSD.png">
-<meta property="og:image" content="http://joilence.github.io/images/Disk-Utility-Partition.png">
-<meta property="og:image" content="http://joilence.github.io/images/diskutil-list.png">
-<meta property="og:image" content="http://joilence.github.io/images/diskutil-resize.png">
-<meta property="og:image" content="http://joilence.github.io/images/cannot-enter-recovery-hd.png">
-<meta property="og:updated_time" content="2016-07-23T02:17:14.000Z">
+ 前情提要
+不太确定是 2015 年后 Macbook 的因素还是 OS X 10.11 的因素，Boot Camp 安装的方式发生了改变。
+根据官网只提供了 2015 年以前的 Boot Camp Assistant 的下载，推测多半是硬件因素。
+ 安装流程
+新 Boot Camp 双系统的安装不再需要使用外部 U 盘来创建安装盘，同时也不会自动在成功安装后的 Wi">
+<meta property="og:image" content="http://joilence.github.io/images/boot-camp-download-speed-under-network-in-apple-store.png">
+<meta property="og:updated_time" content="2016-07-26T12:17:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="OS X 使用 Disk Utility 分区后无法回收及后续问题">
+<meta name="twitter:title" content="2015年后的 Macbook 的 Boot Camp 安装问题">
 <meta name="twitter:description" content="【OS X 10.11.5】
-// 此处应有故事起因
-然后手快拿 Disk Utility 分了区，分了 75G 出去。
-// 此处应有故事过程
-然后之间点击 Partition，把饼状图中之前的分区通过点击下方 - 按钮移除，于是出现了以下情况：
-
-
-分区的确是删除了，APPLE SSD 也依然是 500G 容量但是分区的空间并没有被 Macintosh HD 回收。迷之消失的 75G。
-打开终">
-<meta name="twitter:image" content="http://joilence.github.io/images/Disk-Utility-SSD.png">
+ 前情提要
+不太确定是 2015 年后 Macbook 的因素还是 OS X 10.11 的因素，Boot Camp 安装的方式发生了改变。
+根据官网只提供了 2015 年以前的 Boot Camp Assistant 的下载，推测多半是硬件因素。
+ 安装流程
+新 Boot Camp 双系统的安装不再需要使用外部 U 盘来创建安装盘，同时也不会自动在成功安装后的 Wi">
+<meta name="twitter:image" content="http://joilence.github.io/images/boot-camp-download-speed-under-network-in-apple-store.png">
 
 
 
@@ -146,9 +133,9 @@
 
 
 
-  <link rel="canonical" href="http://joilence.github.io/2016/07/22/macbook-partition-problem/"/>
+  <link rel="canonical" href="http://joilence.github.io/2016/07/26/boot-camp-on-2015-and-later-macbook/"/>
 
-  <title> OS X 使用 Disk Utility 分区后无法回收及后续问题 | Joilence </title>
+  <title> 2015年后的 Macbook 的 Boot Camp 安装问题 | Joilence </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -268,7 +255,7 @@
             
             
               
-                OS X 使用 Disk Utility 分区后无法回收及后续问题
+                2015年后的 Macbook 的 Boot Camp 安装问题
               
             
           </h1>
@@ -280,8 +267,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-07-22T23:10:34+08:00" content="2016-07-22">
-              2016-07-22
+            <time itemprop="dateCreated" datetime="2016-07-26T19:46:49+08:00" content="2016-07-26">
+              2016-07-26
             </time>
           </span>
 
@@ -309,25 +296,21 @@
 
       
         <p>【OS X 10.11.5】</p>
-<p>// 此处应有故事起因</p>
-<p>然后手快拿 Disk Utility 分了区，分了 75G 出去。</p>
-<p>// 此处应有故事过程</p>
-<p>然后之间点击 Partition，把饼状图中之前的分区通过点击下方 <code>-</code> 按钮移除，于是出现了以下情况：</p>
-<p><img src="/images/Disk-Utility-SSD.png" alt="Disk-Utility-SSD"><br>
-<img src="/images/Disk-Utility-Partition.png" alt="Disk-Utility-Partition"><br>
-分区的确是删除了，APPLE SSD 也依然是 500G 容量但是分区的空间并没有被 Macintosh HD 回收。迷之消失的 75G。</p>
-<p>打开终端，输入 <code>diskutil list</code>，回车。</p>
-<p><img src="/images/diskutil-list.png" alt="diskutil-list"></p>
-<p>发现 Recovery HD 变成了 75G，也就是说，移除的分区被 Recovery HD 吃掉了。那么是不是只要把 Recovery HD resize 一下就好呢？然而…</p>
-<p><img src="/images/diskutil-resize.png" alt="diskutil-resize"></p>
-<p>并不行。</p>
-<p>问过 Apple Genius 之后，得知这个是一个存在很久的 Bug，当你在使用逻辑卷宗（比如使用了 FireVault 加密）时，直接移除分区，Recovery HD 就会直接吞掉分区容量。现在的办法只有把盘格式化掉再重装系统了。</p>
-<p>重装完成后，发现虽然 Recovery HD 还在，但无法进入恢复模式。进入后屏幕左上角会提示如上信息。</p>
-<p><img src="/images/cannot-enter-recovery-hd.png" alt="cannot-enter-recovery-hd"></p>
-<p>接着就开始自动重启。</p>
-<p>再次求助 Apple Genius，Genius 表示也不太清楚是什么问题，做了硬盘测试，没有发现问题。随后再次重装系统测试，此时 Genius 给我讲了一个非官方的「古老」方法解决各种奇奇怪怪的硬盘问题。</p>
-<p>当要格式化 APPLE SSD 时，选择 Erase，然后更改 Partition Scheme 为 <a href="https://en.wikipedia.org/wiki/Apple_Partition_Map" target="_blank" rel="external">Apple Partition Map</a>，格式化完成之后再格式化回 GUID Partition 即可。</p>
-<p>Genius 表示也不知道为什么… 反正就是有效果，尤其是针对一些老设备。当然对我这台 MacbookPro12,1（2015 Late）似乎也生效了。</p>
+<h1 id="前情提要"><a class="header-anchor" href="#前情提要"> </a>前情提要</h1>
+<p>不太确定是 2015 年后 Macbook 的因素还是 OS X 10.11 的因素，Boot Camp 安装的方式发生了改变。</p>
+<p>根据官网只提供了 2015 年以前的 Boot Camp Assistant 的下载，推测多半是硬件因素。</p>
+<h1 id="安装流程"><a class="header-anchor" href="#安装流程"> </a>安装流程</h1>
+<p>新 Boot Camp 双系统的安装不再需要使用外部 U 盘来创建安装盘，同时也不会自动在成功安装后的 Windows 中自动安装 Boot Camp 助理，使得触摸板双指滑动、右键等等功能均无法使用。</p>
+<p>在 2015 年后的 Macbook 中打开 Boot Camp Assistant，选择镜像并选定分区空间后，将会下载 Support Software，并且每次重新安装 Windows 都会重新下载，估计大小为 1 GB 左右。</p>
+<p>如果你所在的网络环境下载速度过慢，可以去你所在地的苹果直营店，在直营店 Genius Bar 里接入该店的网线用其内部网络进行下载，速度如下：<br>
+<img src="/images/boot-camp-download-speed-under-network-in-apple-store.png" alt="boot-camp-download-speed-under-network-in-apple-store"></p>
+<p>下载安装完毕后，会开始分区，拷贝 Windows 文件。</p>
+<p>以上流程完毕会自动重启进入 Windows 安装界面，在安装过程中，需要将划分出的 BOOTCAMP 分区格式化为 NTFS 格式。同时你会发现该分区比你之前分区的大小少了近 8 G，和另一个 OSXRESERVED 分区。</p>
+<p>安装完成后进入 Windows 系统，打开 <code>计算机</code> 会发现除了 C 盘意外，还有一个我们之前见过的 OSXRESERVED 盘，点击其目录下的 <code>setup.exe</code> 会重新开始安装 Windows。</p>
+<p>进入其目录下的 <code>Boot Camp</code>，再点击 <code>Boot Camp</code> 下的 <code>setup.exe</code> 会进入 Boot Camp 助理的安装引导，完成后，OSXRESERVED 分区会消失，其占用空间会合并进 C 盘。</p>
+<h1 id="可能遇见的问题"><a class="header-anchor" href="#可能遇见的问题"> </a>可能遇见的问题</h1>
+<p>安装成功并进入 Windows 后，在 <code>计算机</code> 中可能没有 OSXRESERVED 盘，如果多次重启仍然没有，似乎只有尝试重新安装，直至其出现。</p>
+<p>我第一次安装时不清楚需要手动安装 Boot Camp 助理，在发现没有 Boot Camp 助理后尝试多次重启，并且在开机时进入启动管理器界面，会看到 OSXRESERVED 分区，但多次重启之后消失，Boot Camp 助理也没有自动安装。似乎新的 Boot Camp 仍然有一些 Bug。</p>
 
       
     </div>
@@ -360,17 +343,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/18/linux-and-macbookair/" rel="next" title="给 Macbook Air 安装 Linux">
-                <i class="fa fa-chevron-left"></i> 给 Macbook Air 安装 Linux
+              <a href="/2016/07/26/os-x-disk-space-and-hidden-space/" rel="next" title="OS X 删除文件后系统可用空间未增加">
+                <i class="fa fa-chevron-left"></i> OS X 删除文件后系统可用空间未增加
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/26/os-x-disk-space-and-hidden-space/" rel="prev" title="OS X 删除文件后系统可用空间未增加">
-                OS X 删除文件后系统可用空间未增加 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -504,7 +483,7 @@
               
             
             
-              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前情提要"><span class="nav-number">1.</span> <span class="nav-text"> 前情提要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装流程"><span class="nav-number">2.</span> <span class="nav-text"> 安装流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#可能遇见的问题"><span class="nav-number">3.</span> <span class="nav-text"> 可能遇见的问题</span></a></li></ol></div>
             
           </div>
         </section>
