@@ -240,6 +240,134 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/19/makefile-guide/" itemprop="url">
+                  makefile 学习指南
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-08-19T20:24:15+08:00" content="2016-08-19">
+              2016-08-19
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="makefile-简介"><a class="header-anchor" href="#makefile-简介"> </a>makefile 简介</h1>
+<p>make 是一个程序，识别一系列如文件名为 Makefile，makefile 等的文件，根据其中的依赖关系，自动化编译项目。</p>
+<h1 id="为什么需要-makefile"><a class="header-anchor" href="#为什么需要-makefile"> </a>为什么需要 makefile</h1>
+<p>对于一个有一定规模的项目，makefile 可以自动化编译，比一个一个手打 gcc/g++ 命令的效率高出许多，并且明确了依赖关系。另一个巨大优势是：使用 makefile 重新编译程序，make 会自动忽略没有修改的文件，只编译被修改过的文件，使得编译效率大大提高。</p>
+<h1 id="基本语法"><a class="header-anchor" href="#基本语法"> </a>基本语法</h1>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Target: Dependence1 Dependence2 ...</div><div class="line">        command ...</div></pre></td></tr></table></figure>
+<p><code>Target</code> 即是要编译的目标文件，<code>Dependence</code> 是制作这个目标文件需要的依赖文件，如果这些文件都存在，即条件都满足，就会执行下面 <code>command</code> 中命令。</p>
+<p>如：</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">main: main.o</div><div class="line">    g++ main.o -o main</div><div class="line">main.o: main.cpp</div><div class="line">    g++ main.cpp -o main.o</div></pre></td></tr></table></figure>
+<h1 id="进阶"><a class="header-anchor" href="#进阶"> </a>进阶</h1>
+<h3 id="多目录"><a class="header-anchor" href="#多目录"> </a>多目录</h3>
+<p>一般来说，自己程序的文件夹中会有 bin, build, src, include 这些目录，分别存放可执行程序，目标文件，源文件，头文件。makefile 一般放在根目录下。你只需在前面加上目录名字即可。如:</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">bin/main: build/main.o</div><div class="line">    g++ build/main.o -o bin/main</div><div class="line">build/main.o: src/main.cpp</div><div class="line">    g++ -c src/main.cpp -o build/main.o</div></pre></td></tr></table></figure>
+<h3 id="变量"><a class="header-anchor" href="#变量"> </a>变量</h3>
+<p>在很多教程中，会给出声明变量的不同写法。</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var := value</div><div class="line">var = value</div></pre></td></tr></table></figure>
+<p>实际上，前者为简单扩展变量（recursively expanded variable），后者为递归扩展变量（simply expanded variable）。</p>
+<p>简单变量会在 <strong>被引用时立即赋值</strong> ，比如你这样写：</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">a := a</div><div class="line">abc := <span class="variable">$(a)</span> b c</div><div class="line">a := d</div><div class="line">abc2 := <span class="variable">$(a)</span> b c</div><div class="line"></div><div class="line"><span class="section">test:</span></div><div class="line">	echo <span class="variable">$(abc)</span></div><div class="line">	echo <span class="variable">$(abc2)</span></div></pre></td></tr></table></figure>
+<p>然后 <code>make test</code> 会发现输出如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">echo a b c</div><div class="line">a b c</div><div class="line">echo d b c</div><div class="line">d b c</div></pre></td></tr></table></figure>
+<p>而递归变量 <strong>只有在被引用的变量在执行时被赋值</strong> ，比如你这样写：</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">a = a</div><div class="line">abc = <span class="variable">$(a)</span> b c</div><div class="line">a = d</div><div class="line">abc2 = <span class="variable">$(a)</span> b c</div><div class="line"><span class="section">test:</span></div><div class="line">	echo <span class="variable">$(abc)</span></div><div class="line">	echo <span class="variable">$(abc2)</span></div></pre></td></tr></table></figure>
+<p>会发现输出如下，即便 <code>abc</code> 在 <code>a = d</code> 之后就被赋值，都只有在 <code>test</code> 执行 <code>abc</code> 的时候，a 才会被替换为它最后的值 <code>d</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">echo d b c</div><div class="line">d b c</div><div class="line">echo d b c</div><div class="line">d b c</div></pre></td></tr></table></figure>
+<h3 id="自动化变量"><a class="header-anchor" href="#自动化变量"> </a>自动化变量</h3>
+<p>makefile 可以使用一些自动化减少劳动量，同样拿之前的例子：</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">bin/main: build/main.o</div><div class="line">    g++ build/main.o -o bin/main</div><div class="line">build/main.o: src/main.cpp</div><div class="line">    g++ -c src/main.cpp -o build/main.o</div></pre></td></tr></table></figure>
+<p>可以简化成</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">bin/main: build/main.o</div><div class="line">    g++ $^ -o $@</div><div class="line">build/main.o: src/main.cpp</div><div class="line">    g++ -c $&lt; -o $@</div></pre></td></tr></table></figure>
+<p><code>$^</code> 可以直接替换成当前目标文件的所有依赖文件；<code>$@</code> 可以直接替换成当前目标文件的路径名称，而不需要反复输入；<code>$&lt;</code> 会直接替换成当前目标文件的首个依赖文件。</p>
+<h1 id="最后"><a class="header-anchor" href="#最后"> </a>最后</h1>
+<p>以上只提到了自己比较常用的东西，并未介绍完所有关于 makefile 的知识，比如另外更多的自动化变量等。这些可以自行 google。</p>
+<p>推荐一份更加详细深入的教程（只是没有自动化变量）：</p>
+<p><a href="http://wiki.ubuntu.org.cn/%E8%B7%9F%E6%88%91%E4%B8%80%E8%B5%B7%E5%86%99Makefile" target="_blank" rel="external">跟我一起写Makefile</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/07/26/boot-camp-on-2015-and-later-macbook/" itemprop="url">
                   2015年后的 Macbook 的 Boot Camp 安装问题
                 </a>
@@ -973,7 +1101,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
