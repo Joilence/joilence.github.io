@@ -93,7 +93,8 @@ function func() 声明具有声明提升的特性，即函数可在调用之后�
 }
 闭包 {
 阮一峰博客中的理解是：闭包就是能够读取其他函数内部变量的函数。
-&amp;gt;">
+
+1）由">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript 随意学习笔记（1）">
 <meta property="og:url" content="http://joilence.github.io/2016/10/19/javascript-learn-notes/index.html">
@@ -105,8 +106,9 @@ function func() 声明具有声明提升的特性，即函数可在调用之后�
 }
 闭包 {
 阮一峰博客中的理解是：闭包就是能够读取其他函数内部变量的函数。
-&amp;gt;">
-<meta property="og:updated_time" content="2016-10-19T15:20:16.000Z">
+
+1）由">
+<meta property="og:updated_time" content="2016-10-19T15:35:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript 随意学习笔记（1）">
 <meta name="twitter:description" content="JavaScript 是一种弱类型、动态的语言，体现在对象类型不固定，可随时增删属性与方法。
@@ -116,7 +118,8 @@ function func() 声明具有声明提升的特性，即函数可在调用之后�
 }
 闭包 {
 阮一峰博客中的理解是：闭包就是能够读取其他函数内部变量的函数。
-&amp;gt;">
+
+1）由">
 
 
 
@@ -306,12 +309,11 @@ function func() 声明具有声明提升的特性，即函数可在调用之后�
 }</p>
 <p>闭包 {<br>
 阮一峰博客中的理解是：闭包就是能够读取其他函数内部变量的函数。</p>
-<pre><code>&gt; 1）由于闭包会使得函数中的变量都被保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在IE中可能导致内存泄露。解决方法是，在退出函数之前，将不使用的局部变量全部删除。
-&gt; 2）闭包会在父函数外部，改变父函数内部变量的值。所以，如果你把父函数当作对象（object）使用，把闭包当作它的公用方法（Public Method），把内部变量当作它的私有属性（private value），这时一定要小心，不要随便改变父函数内部变量的值。
-
-当函数中
-</code></pre>
-<p>}</p>
+<blockquote>
+<p>1）由于闭包会使得函数中的变量都被保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在IE中可能导致内存泄露。解决方法是，在退出函数之前，将不使用的局部变量全部删除。<br>
+2）闭包会在父函数外部，改变父函数内部变量的值。所以，如果你把父函数当作对象（object）使用，把闭包当作它的公用方法（Public Method），把内部变量当作它的私有属性（private value），这时一定要小心，不要随便改变父函数内部变量的值。<br>
+}</p>
+</blockquote>
 <p>使用 <code>var that = this</code> 方法使得闭包函数可以调用外部函数的 this。</p>
 <p>由于 JavaScript 不存在块级作用域，如 for 循环中暂时使用的 i，会在函数内部任何一处有效。为防止潜在的不稳定因素，可以通过匿名函数来模仿块级作用域（私有作用域）。</p>
 <p>一些 OO 编程传统特性实现的奇技淫巧 {</p>
@@ -323,8 +325,8 @@ function func() 声明具有声明提升的特性，即函数可在调用之后�
 <p><strong>单例模式</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> singleton = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// Private Member</span></div><div class="line">    <span class="keyword">var</span> privateVar = <span class="number">10</span>;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">privateFunc</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line">    <span class="comment">// Public Method</span></div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        publicVar: <span class="literal">true</span>,</div><div class="line">        publicMethod: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">return</span> privateFunc();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><strong>确定类型的单例模式</strong><br>
-只需要在原型内创建对象，<code>var object = customType()</code>，最后返回 <code>return object</code> 即可。公共接口也可以借由该 object 添加。</p>
-<p>}</p>
+只需要在原型内创建对象，<code>var object = customType()</code>，最后返回 <code>return object</code> 即可。公共接口也可以借由该 object 添加。<br>
+}</p>
 <blockquote>
 <p>如何实现一个完善的对象，同时具备私有变量和静态私有变量？</p>
 </blockquote>
