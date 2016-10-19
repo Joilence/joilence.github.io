@@ -317,6 +317,9 @@ document.getElementByClassName() 返回的不是一个简单的数组，而是 H
 <p>这样一来，想要使某个 class 的所有元素改变到另一个 class，使用如下代码即可：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> elements = <span class="built_in">document</span>.getElementByClassName(<span class="string">"old-class"</span>);</div><div class="line"><span class="keyword">while</span> (elements.length) &#123;</div><div class="line">    elements[<span class="number">0</span>].className = <span class="string">"new-class"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>}</p>
+<p>参考文献：<br>
+《JavaScript 高级程序设计》 第七章<br>
+<a href="http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html" target="_blank" rel="external">学习Javascript闭包（Closure） - 阮一峰的网络日志</a></p>
 
           
         

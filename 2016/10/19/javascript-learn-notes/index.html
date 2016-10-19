@@ -108,7 +108,7 @@ function func() 声明具有声明提升的特性，即函数可在调用之后�
 阮一峰博客中的理解是：闭包就是能够读取其他函数内部变量的函数。
 
 1）由">
-<meta property="og:updated_time" content="2016-10-19T15:35:55.000Z">
+<meta property="og:updated_time" content="2016-10-19T15:40:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript 随意学习笔记（1）">
 <meta name="twitter:description" content="JavaScript 是一种弱类型、动态的语言，体现在对象类型不固定，可随时增删属性与方法。
@@ -335,6 +335,9 @@ document.getElementByClassName() 返回的不是一个简单的数组，而是 H
 <p>这样一来，想要使某个 class 的所有元素改变到另一个 class，使用如下代码即可：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> elements = <span class="built_in">document</span>.getElementByClassName(<span class="string">"old-class"</span>);</div><div class="line"><span class="keyword">while</span> (elements.length) &#123;</div><div class="line">    elements[<span class="number">0</span>].className = <span class="string">"new-class"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>}</p>
+<p>参考文献：<br>
+《JavaScript 高级程序设计》 第七章<br>
+<a href="http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html" target="_blank" rel="external">学习Javascript闭包（Closure） - 阮一峰的网络日志</a></p>
 
       
     </div>
