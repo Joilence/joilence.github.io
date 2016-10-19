@@ -240,6 +240,133 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/19/javascript-learn-notes/" itemprop="url">
+                  JavaScript 随意学习笔记（1）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-10-19T20:40:10+08:00" content="2016-10-19">
+              2016-10-19
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>JavaScript 是一种弱类型、动态的语言，体现在对象类型不固定，可随时增删属性与方法。</p>
+<p>JavaScript 的对象均为引用传递，无按值传递。</p>
+<p>函数相关 {<br>
+<code>function func()</code> 声明具有声明提升的特性，即函数可在调用之后声明，但是 <code>var func = function</code> 匿名函数声明则不具备。<br>
+}</p>
+<p>闭包 {<br>
+阮一峰博客中的理解是：闭包就是能够读取其他函数内部变量的函数。</p>
+<pre><code>&gt; 1）由于闭包会使得函数中的变量都被保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在IE中可能导致内存泄露。解决方法是，在退出函数之前，将不使用的局部变量全部删除。
+&gt; 2）闭包会在父函数外部，改变父函数内部变量的值。所以，如果你把父函数当作对象（object）使用，把闭包当作它的公用方法（Public Method），把内部变量当作它的私有属性（private value），这时一定要小心，不要随便改变父函数内部变量的值。
+
+当函数中
+</code></pre>
+<p>}</p>
+<p>使用 <code>var that = this</code> 方法使得闭包函数可以调用外部函数的 this。</p>
+<p>由于 JavaScript 不存在块级作用域，如 for 循环中暂时使用的 i，会在函数内部任何一处有效。为防止潜在的不稳定因素，可以通过匿名函数来模仿块级作用域（私有作用域）。</p>
+<p>一些 OO 编程传统特性实现的奇技淫巧 {</p>
+<p><strong>私有变量</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyObject</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// Private Member</span></div><div class="line">    <span class="keyword">var</span> privateVar = <span class="number">10</span>;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">privateFunc</span> </span>&#123;&#125;</div><div class="line">    <span class="comment">// Public Method</span></div><div class="line">    <span class="keyword">this</span>.publicMethod = &#123;</div><div class="line">        <span class="keyword">return</span> privateFunc;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上述代码中，除了 PublicMethod 这一途径，没有任何方法访问其私有成员。</p>
+<p><strong>静态私有变量</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// Private Member</span></div><div class="line">    <span class="keyword">var</span> privateVar = <span class="number">10</span>;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">privareFunc</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line">    <span class="comment">// Constructor</span></div><div class="line">    MyObject = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125; <span class="comment">// Make it global without 'var'</span></div><div class="line">    <span class="comment">// Public Method</span></div><div class="line">    MyObject.prototype.publicMethod = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<p><strong>单例模式</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> singleton = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// Private Member</span></div><div class="line">    <span class="keyword">var</span> privateVar = <span class="number">10</span>;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">privateFunc</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line">    <span class="comment">// Public Method</span></div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        publicVar: <span class="literal">true</span>,</div><div class="line">        publicMethod: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">return</span> privateFunc();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>确定类型的单例模式</strong><br>
+只需要在原型内创建对象，<code>var object = customType()</code>，最后返回 <code>return object</code> 即可。公共接口也可以借由该 object 添加。</p>
+<p>}</p>
+<blockquote>
+<p>如何实现一个完善的对象，同时具备私有变量和静态私有变量？</p>
+</blockquote>
+<p>上周踩到的一个坑 {<br>
+document.getElementByClassName() 返回的不是一个简单的数组，而是 HTMLCollection 对象。这个集合对象是动态的：当文档改变时，其改变都会影响 HTMLCollection 的内容。</p>
+<p>这样一来，想要使某个 class 的所有元素改变到另一个 class，使用如下代码即可：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> elements = <span class="built_in">document</span>.getElementByClassName(<span class="string">"old-class"</span>);</div><div class="line"><span class="keyword">while</span> (elements.length) &#123;</div><div class="line">    elements[<span class="number">0</span>].className = <span class="string">"new-class"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>}</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/08/apple-2016-autumn-special-event/" itemprop="url">
                   Apple 2016 秋季发布会
                 </a>
@@ -1271,145 +1398,13 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/11/create-personal-blog-with-hexo/" itemprop="url">
-                  搭建个人博客：Hexo & GitHub Pages
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-07-11T02:51:22+08:00" content="2016-07-11">
-              2016-07-11
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>【在 OS X 上操作，部分适用于 Linux】</p>
-<h1 id="相关"><a class="header-anchor" href="#相关"> </a>相关</h1>
-<ul>
-<li>
-<p>Hexo</p>
-<p>Hexo 是一个静态博客框架。你只需要在本地使用 Hexo 生成静态页面，并部署到代码托管平台，即可通过网站访问博客页面。</p>
-</li>
-<li>
-<p>GitHub Pages</p>
-<p>GitHub 的免费静态页面托管服务，可以使用 <a href="http://username.github.io" target="_blank" rel="external">username.github.io</a> 或者自定义域名来访问站点。</p>
-</li>
-</ul>
-<h1 id="准备"><a class="header-anchor" href="#准备"> </a>准备</h1>
-<h2 id="github-账户"><a class="header-anchor" href="#github-账户"> </a>GitHub 账户</h2>
-<p><a href="https://github.com/join" target="_blank" rel="external">注册 GitHub 账户</a></p>
-<h2 id="安装-git-node-js"><a class="header-anchor" href="#安装-git-node-js"> </a>安装 Git，Node.js</h2>
-<p>建议先安装 Homebrew，一个包管理器 (Package Manager)。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ /usr/bin/ruby <span class="_">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></div></pre></td></tr></table></figure>
-<p>之后可以通过 Homebrew 来安装 Git，Node.js。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew install git node.js</div></pre></td></tr></table></figure>
-<h2 id="安装-hexo"><a class="header-anchor" href="#安装-hexo"> </a>安装 Hexo</h2>
-<p>安装 Node.js 的过程中也会自动安装 npm，另一个包管理器。在 Terminal 使用 npm 安装 Hexo。同时因为我们希望用 GitHub Pages 来托管静态网页，所以需要安装 hero-generator-git。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo hexo-generator-git</div></pre></td></tr></table></figure>
-<h1 id="配置-hexo"><a class="header-anchor" href="#配置-hexo"> </a>配置 Hexo</h1>
-<p>选择一个目录创建一个新的文件夹，通过 Terminal 使用 cd 命令访问这个文件夹，在该文件夹完成 Hexo 的初始化配置。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init</div></pre></td></tr></table></figure>
-<p>此时运行以下指令进行测试。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>此时 Terminal 中会显示访问页面的方式，通常是 <code>localhost:4000</code>，访问即可看见 Hexo 初始的页面。</p>
-<h1 id="配置-github-pages"><a class="header-anchor" href="#配置-github-pages"> </a><a href="https://pages.github.com" target="_blank" rel="external">配置 GitHub Pages</a></h1>
-<h1 id="部署-hexo-静态页面"><a class="header-anchor" href="#部署-hexo-静态页面"> </a>部署 Hexo 静态页面</h1>
-<p>进入你的博客文件夹，使用文本编辑器打开 _config.yml 文件，编辑最下面的 deploy 部分。</p>
-<p>如果配置 GitHub Pages 中你选择使用 User site，修改为以下样式。</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="attr">deploy:</span></div><div class="line"><span class="attr">  type:</span> git</div><div class="line"><span class="attr">  repository:</span> https://github.com/[username]/[username].github.io.git</div><div class="line"><span class="attr">  branch:</span> master</div></pre></td></tr></table></figure>
-<p>如果配置 GitHub Pages 中你选择使用 Project Site，则修改为以下样式。</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="attr">deploy:</span></div><div class="line"><span class="attr">  type:</span> git</div><div class="line"><span class="attr">  repository:</span> https://github.com/[username]/[repository name].git</div><div class="line"><span class="attr">  branch:</span> gh-pages</div></pre></td></tr></table></figure>
-<p>通过 Terminal 进入你的博客文件夹，先生成静态页面，再部署到 GitHub Pages。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>某些情况下，当你遇到<code>Fatal</code>,<code>Error</code> 等字眼时，可以重新使用 <code>sudo</code> 运行以上指令。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo hexo generate</div><div class="line">$ sudo hexo deploy</div></pre></td></tr></table></figure>
-<h1 id="更多"><a class="header-anchor" href="#更多"> </a>更多</h1>
-<p>发布博文，以及 Hexo 的详细配置，推荐 <a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">Hexo 官方文档</a></p>
-<p>推荐 Hexo 博客主题 <a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">NexT</a>，同样有详细说明。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1448,7 +1443,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
