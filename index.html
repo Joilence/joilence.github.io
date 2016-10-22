@@ -240,8 +240,129 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/22/javascript-learn-notes-2/" itemprop="url">
+                  JavaScript 学习笔记（2）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-10-22T14:05:33+08:00" content="2016-10-22">
+              2016-10-22
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="引用类型"><a class="header-anchor" href="#引用类型"> </a>引用类型</h2>
+<p>引用类型是一种数据结构，类似 C++ 的类，对象是引用类型的实例。</p>
+<p>Object 是 JavaScript 中最常见的引用类型。</p>
+<p>构造 Object 对象的方法有两种：1）new + 构造函数。2）使用对象字面量表示法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> person = &#123;</div><div class="line">    name: <span class="string">"Jonathan"</span>,</div><div class="line">    age: <span class="number">20</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>访问对象属性的方法有两种。1）<code>person[&quot;name&quot;]</code>。2）<code>person.name</code>。前者的优势是可以利用另一个字符串变量来访问属性。</p>
+<h2 id="array-类型"><a class="header-anchor" href="#array-类型"> </a>Array 类型</h2>
+<p>JavaScript Array 与其他语言相似之处就不谈了。</p>
+<p>Array 的动态特性：<br>
+1）直接修改 length 改变其长度。<br>
+2）直接给 Array 某一位元素赋值即可修改或者<em>添加</em>元素。<br>
+3）使用 <code>people[people.length] = &quot;Jonathan&quot;</code> 即可方便的在末尾追加元素。</p>
+<p>Array 最多可以包含 4,294,967,295 个元素。</p>
+<p>检测 Array 的两种方法：<br>
+1）Array.isArray()。<br>
+2）instanceof （有缺陷，它假定只有一个全局环境。若包含多个框架，存在不同版本的 Array 构造函数，就会返回错误结果）</p>
+<h2 id="function-类型"><a class="header-anchor" href="#function-类型"> </a>Function 类型</h2>
+<p>JavaScript 中的函数实际上是对象，是 Function 类型的实例。</p>
+<p>函数内部有两个特殊对象：arguments 和 this。<br>
+1）arguments 包含传入参数的类数组对象。该对象拥有 callee 属性指针，指向拥有这个 arguments 对象的函数。<br>
+2）this 引用函数执行的环境对象。</p>
+<p>Function 拥有两个属性：length 和 prototype。</p>
+<p>使用 call() 和 apply() 函数可以扩展函数运行的作用域，而对象和方法不需要有任何耦合关系。</p>
+<p>bind() 函数返回一个绑定作用域的函数版本。<code>objectFunction = generalFunction.bind(object)</code>。</p>
+<p>单体内置对象：<br>
+Global 对象，window 对象，eval 方法（关系到代码注入），Math 对象，暂不详细展开，仅做记录。</p>
+<p>参考文献：<br>
+《JavaScript 高级程序设计》第五章</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/19/javascript-learn-notes/" itemprop="url">
-                  JavaScript 随意学习笔记（1）
+                  JavaScript 学习笔记（1）
                 </a>
               
             
@@ -413,9 +534,7 @@ document.getElementByClassName() 返回的不是一个简单的数组，而是 H
       
         
           
-            <p>2016-09-10 update: 关于 AirPods</p>
-<hr>
-<p>近年 WWDC 和秋季发布会算是将软件更新与硬件更新完全分离了，让人感觉更清爽更健康了（不知道我在说什么…</p>
+            <p>近年 WWDC 和秋季发布会算是将软件更新与硬件更新完全分离了，让人感觉更清爽更健康了（不知道我在说什么…</p>
 <p>看了这么多年发布会，斗胆写点自己的想法。</p>
 <hr>
 <p><img src="/images/apple-watch-series-2.png" alt="apple-watch-series-2"></p>
@@ -462,11 +581,15 @@ document.getElementByClassName() 返回的不是一个简单的数组，而是 H
 <p>3.5mm 这种接口在 Thunder 以及 USB type-C 这个时代早晚都是被淘汰的命。</p>
 <h3 id="耳机本身"><a class="header-anchor" href="#耳机本身"> </a>耳机本身</h3>
 <p>个人用无线耳机的经验几乎跟自己几年前玩手机的经验差不多（当年买二手卖二手用了两年玩了 30 多部手机），从入耳式如 Jabra Rox 起步，到 Sony AS800BT 等等，蓝牙 MP3 类型的 Sony WS615，以及通勤的 Jawbone Era，头戴还有 Beats Studio Wireless，Parrot Zik 2 等等，到现在的 Bose Soundlink。应该说市面上不错的蓝牙耳机自己都玩了个七七八八，因为本来选择也不多。</p>
-<p>跟 AirPods 对比的自然是 Jabra Rox 这类入耳式有线蓝牙耳机…那么…与 Moto Hint 相似的设计，又做了电池的权衡（多出来的这个怪异的竖杆是电池和无线模块）…</p>
-<p>update: 最开始接触的现在所谓 True Wireless 耳机是 Moto Hint，当时 Hint 的音质以及通话效果还非常的差。但现在 Hint 不仅有了第二代，Moto VerveOne+ 以及 Samsung IconX 都有发布，那么下面一句话就存疑。有机会我会去直营店体验一下。</p>
-<p>// 想写的太多了，一句话带过， AirPods 是目前技术限制的权衡下最好的入耳式(?)无线耳机。</p>
+<p>（这里实在太懒就随便讲讲）<br>
+跟 AirPods 对比的自然是 Jabra Rox 这类入耳式有线蓝牙耳机，<br>
+…那么…与 Moto Hint 相似的设计，又做了电池的权衡（多出来的这个怪异的竖杆是电池和无线模块）…</p>
+<p>上面所列举的蓝牙耳机又有两个种类，一种是 Jabra Rox 这样虽然无线（不需要有线连接设备）但又有线（两边耳机的连接线）的，另外一种是 AirPods 这类所 True Wireless 蓝牙耳机（没有手机连接线，两边耳机也没有连接线）。</p>
+<p>True Wireless 耳机是我个人十分推崇的，所谓科技的本质就是让人感受不到科技的存在，最初放弃 Sony WS615 就是这个问题，两边庞大的耳机更多会让人觉得怪异，而不是炫酷。True Wireless 这样相对隐藏式的设计，相对自然的外观才是正确的方向。</p>
+<p>最开始接触的现在所谓 True Wireless 耳机是 Moto Hint，当时 Hint 的音质以及通话效果还非常的差。AirPods 与 Moto Hint 相似采用 True Wireless 的设计，趋进自然，但又做了电池的权衡（多出来的这个怪异的竖杆是电池和无线模块），显得更加怪异。使得对其评价有些难度，而现在 Hint 不仅有了第二代，Moto VerveOne+ 以及 Samsung IconX 都有发布，我都没体验过，很难再加以评价。</p>
+<p>这一方面能写的太多，不过就其他 True Wireless 耳机当前的兼容性、各方面取舍以及媒体评测来看， AirPods 应该是目前技术限制的权衡下均衡性最好的入耳式(?)无线耳机。</p>
 <h3 id="apple-出品"><a class="header-anchor" href="#apple-出品"> </a>Apple 出品</h3>
-<p>既然是 Apple 出品，AirPods 与其他 Apple 设备就自然各种体验优化（类比 Apple Smart Battery Case），其地位就更加不可动摇。</p>
+<p>既然是 Apple 出品，AirPods 与其他 Apple 设备配对自然就有相关的体验优化（类比 Apple Smart Battery Case），其地位就更加不可动摇。</p>
 <hr class="footnotes-sep">
 <section class="footnotes">
 <ol class="footnotes-list">
@@ -524,7 +647,7 @@ document.getElementByClassName() 返回的不是一个简单的数组，而是 H
               
                 
                 <a class="post-title-link" href="/2016/08/29/backup-config-with-mackup/" itemprop="url">
-                  用 Mackup 备份配置文件及其相关问题
+                  用 Mackup 备份配置文件的问题
                 </a>
               
             
@@ -570,103 +693,6 @@ document.getElementByClassName() 返回的不是一个简单的数组，而是 H
             <p>【OS X 10.11】</p>
 <p>首先，如果你还没有使用 Mackup，你需要知道 Mackup 不适合在多台设备间同时共享配置文件。</p>
 <p>这是我最开始的误区。因为有两台设备，想要通过 Mackup 以及 Dropbox 在两台设备之间同步共享配置文件。但这带来的巨大问题是，由于两台设备的用户名不同，导致当配置文件中与用户名相关的内容和路径会集体报错，非常难受，并且有些程序的配置文件被设置软链接之后会出一些莫名其妙的问题，反而会带来更多麻烦。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/26/slow-to-visit-github-through-terminal/" itemprop="url">
-                  slow-to-visit-github-through-terminal
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-08-26T14:11:33+08:00" content="2016-08-26">
-              2016-08-26
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>尝试在 etc/hosts 中添加</p>
-<p><a href="http://www.thinkingbar.com/2014/02/20/github%E5%8A%A0%E8%BD%BD%E8%BF%87%E6%85%A2/" target="_blank" rel="external">http://www.thinkingbar.com/2014/02/20/github加载过慢/</a></p>
-<p><a href="https://github.com/Vence/personalKnowledge/wiki/%E8%A7%A3%E5%86%B3Github%E8%AE%BF%E9%97%AE%E8%B6%85%E6%85%A2%E9%97%AE%E9%A2%98" target="_blank" rel="external">https://github.com/Vence/personalKnowledge/wiki/解决Github访问超慢问题</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"># github</div><div class="line">204.232.175.78 http://documentcloud.github.com</div><div class="line">207.97.227.239 http://github.com</div><div class="line">204.232.175.94 http://gist.github.com</div><div class="line">107.21.116.220 http://help.github.com</div><div class="line">207.97.227.252 http://nodeload.github.com</div><div class="line">199.27.76.130 http://raw.github.com</div><div class="line">107.22.3.110 http://status.github.com</div><div class="line">204.232.175.78 http://training.github.com</div><div class="line">207.97.227.243 http://www.github.com</div></pre></td></tr></table></figure>
 
           
         
