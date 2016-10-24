@@ -86,15 +86,40 @@
 
 
 
-<meta name="description" content="Coding on the way">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Joilence">
-<meta property="og:url" content="http://joilence.github.io/archives/2016/09/index.html">
+<meta name="description" content="事件流
+当你点击一组同心圆的圆心，你实际上点击了所有的圆，而不仅仅是最小的圆。
+事件流
+1）冒泡流 - 由嵌套最底层向上传播
+2）捕获流 - 由顶层向下传播（较少使用）
+DOM 事件流：DOM 2级事件规定事件流分为三个阶段：事件捕获、处于目标以及事件冒泡阶段。
+事件捕获从上向下传播，为事件截获提供了机会，冒泡阶段中元素对事件作出响应。
+ 事件对象
+事件被触发时，会产生一个包含该事件相关信息的事">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 学习笔记（3）">
+<meta property="og:url" content="http://joilence.github.io/2016/10/24/javascript-learn-notes-3/index.html">
 <meta property="og:site_name" content="Joilence">
-<meta property="og:description" content="Coding on the way">
+<meta property="og:description" content="事件流
+当你点击一组同心圆的圆心，你实际上点击了所有的圆，而不仅仅是最小的圆。
+事件流
+1）冒泡流 - 由嵌套最底层向上传播
+2）捕获流 - 由顶层向下传播（较少使用）
+DOM 事件流：DOM 2级事件规定事件流分为三个阶段：事件捕获、处于目标以及事件冒泡阶段。
+事件捕获从上向下传播，为事件截获提供了机会，冒泡阶段中元素对事件作出响应。
+ 事件对象
+事件被触发时，会产生一个包含该事件相关信息的事">
+<meta property="og:updated_time" content="2016-10-24T02:04:31.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Joilence">
-<meta name="twitter:description" content="Coding on the way">
+<meta name="twitter:title" content="JavaScript 学习笔记（3）">
+<meta name="twitter:description" content="事件流
+当你点击一组同心圆的圆心，你实际上点击了所有的圆，而不仅仅是最小的圆。
+事件流
+1）冒泡流 - 由嵌套最底层向上传播
+2）捕获流 - 由顶层向下传播（较少使用）
+DOM 事件流：DOM 2级事件规定事件流分为三个阶段：事件捕获、处于目标以及事件冒泡阶段。
+事件捕获从上向下传播，为事件截获提供了机会，冒泡阶段中元素对事件作出响应。
+ 事件对象
+事件被触发时，会产生一个包含该事件相关信息的事">
 
 
 
@@ -115,9 +140,9 @@
 
 
 
-  <link rel="canonical" href="http://joilence.github.io/archives/2016/09/"/>
+  <link rel="canonical" href="http://joilence.github.io/2016/10/24/javascript-learn-notes-3/"/>
 
-  <title> Archive | Joilence </title>
+  <title> JavaScript 学习笔记（3） | Joilence </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -138,7 +163,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -216,66 +241,130 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      Um..! 12 posts in total. Keep on posting.
-    </span>
-
+  <div id="posts" class="posts-expand">
     
 
-      
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JavaScript 学习笔记（3）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-10-24T02:00:30+08:00" content="2016-10-24">
+              2016-10-24
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
       
 
       
+        <h2 id="事件流"><a class="header-anchor" href="#事件流"> </a>事件流</h2>
+<p>当你点击一组同心圆的圆心，你实际上点击了所有的圆，而不仅仅是最小的圆。<br>
+事件流<br>
+1）冒泡流 - 由嵌套最底层向上传播<br>
+2）捕获流 - 由顶层向下传播（较少使用）</p>
+<p>DOM 事件流：DOM 2级事件规定事件流分为三个阶段：事件捕获、处于目标以及事件冒泡阶段。<br>
+事件捕获从上向下传播，为事件截获提供了机会，冒泡阶段中元素对事件作出响应。</p>
+<h2 id="事件对象"><a class="header-anchor" href="#事件对象"> </a>事件对象</h2>
+<p>事件被触发时，会产生一个包含该事件相关信息的事件对象。<br>
+event.target/currentTarget/this 的关系。</p>
+<h2 id="事件处理的内存和性能"><a class="header-anchor" href="#事件处理的内存和性能"> </a>事件处理的内存和性能</h2>
+<h3 id="事件委托"><a class="header-anchor" href="#事件委托"> </a>事件委托</h3>
+<p>单独为每个元素添加事件处理程序会占用大量内存（每个函数都是一个对象），应用事件委托，只添加少量事件处理程序，利用冒泡流和 target 属性对不同元素触发执行不同的代码，可以使得内存消耗更低。（比较适合用于键盘、鼠标的事件触发）</p>
+<h3 id="移除元素前先移除其链接的事件处理程序"><a class="header-anchor" href="#移除元素前先移除其链接的事件处理程序"> </a>移除元素前先移除其链接的事件处理程序</h3>
+<p>参考文献：<br>
+《JavaScript 高级程序设计》第 13 章 事件</p>
+
+      
+    </div>
+
+    <div>
+      
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/22/javascript-learn-notes-2/" rel="next" title="JavaScript 学习笔记（2）">
+                <i class="fa fa-chevron-left"></i> JavaScript 学习笔记（2）
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
         </div>
       
-      
 
       
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/08/apple-2016-autumn-special-event/" itemprop="url">
-              
-                <span itemprop="name">Apple 2016 秋季发布会</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-08T12:07:50+08:00"
-              content="2016-09-08" >
-          09-08
-        </time>
-      </div>
-
-    </header>
+      
+    </footer>
   </article>
 
 
 
-    
-
-  </section>
-
-  
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -283,6 +372,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -302,8 +395,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -373,6 +475,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#事件流"><span class="nav-number">1.</span> <span class="nav-text"> 事件流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件对象"><span class="nav-number">2.</span> <span class="nav-text"> 事件对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件处理的内存和性能"><span class="nav-number">3.</span> <span class="nav-text"> 事件处理的内存和性能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#事件委托"><span class="nav-number">3.1.</span> <span class="nav-text"> 事件委托</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#移除元素前先移除其链接的事件处理程序"><span class="nav-number">3.2.</span> <span class="nav-text"> 移除元素前先移除其链接的事件处理程序</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -469,11 +582,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
 
 
   
